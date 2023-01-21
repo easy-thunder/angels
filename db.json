@@ -1,0 +1,90 @@
+{
+    "services":[{
+        "id": 1,
+        "name": "test name",
+        "purchase": "service",
+        "image": "public/raftingUnderBridge.jpg",
+        "detail": "test details",
+        "priceMin": 0,
+        "priceMax": 1000,
+        "time": 60,
+        "consultation": false,
+        "why": ""
+},
+{   
+    "id": 2,
+    "name": "lest name",
+    "purchase": "service",
+    "image": "public/raftingUnderBridge.jpg",
+    "detail": "test details",
+    "priceMin": 0,
+    "priceMax": 1000,
+    "time": 60,
+    "consultation": false,
+    "why": ""
+},
+{
+    "id": 3,
+    "name": "vest name",
+    "purchase": "service",
+    "image": "public/raftingUnderBridge.jpg",
+    "detail": "test details",
+    "priceMin": 0,
+    "priceMax": 1000,
+    "time": 60,
+    "consultation": false,
+    "why": ""
+},
+{
+    "id": 4,
+    "name": "nest name",
+    "purchase": "service",
+    "image": "public/raftingUnderBridge.jpg",
+    "detail": "test details",
+    "priceMin": 0,
+    "priceMax": 1000,
+    "time": 60,
+    "consultation": false,
+    "why": ""
+},
+{
+    "id": 5,
+    "name": "gest name",
+    "purchase": "service",
+    "image": "public/raftingUnderBridge.jpg",
+    "detail": "test details",
+    "priceMin": 0,
+    "priceMax": 1000,
+    "time": 60,
+    "consultation": false,
+    "why": ""
+},
+{
+    "id": 6,
+    "name": "Best name",
+    "purchase": "service",
+    "image": "public/raftingUnderBridge.jpg",
+    "detail": "test details",
+    "priceMin": 0,
+    "priceMax": 1000,
+    "time": 60,
+    "consultation": false,
+    "why": ""
+}
+],
+
+"People":[{
+"id": 1,
+"name": "Jake",
+"email": "jakediehl17@gmail.com",
+"password": "2622 lafayette street",
+"howCurly": "wavy",
+"hairLength": "long",
+"hairColor": "brown"
+}
+]
+
+
+
+
+}
