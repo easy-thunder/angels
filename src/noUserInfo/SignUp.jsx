@@ -1,4 +1,9 @@
+import { useState } from "react"
+
+
 function SignUp(){
+
+    const [emailMatch, setEmailMatch] = useState(true)
 
 function handleNewClientForm(e){
     e.preventDefault()
@@ -18,11 +23,21 @@ const newClient = {
     hairColor: selectColor.options[selectColor.selectedIndex].text
 }
 
+fetch('http://localhost:3000/People')
+.then(r=>r.json())
+.then(people => people.map(person=> {
+if(newClient.email !== person.email){
+    setEmailMatch(emailMatch => (!emailMatch))
+}
+if(emailMatch===false){
 fetch('http://localhost:3000/People', {
     method: "POST",
     headers:{'Content-Type': "application/json"},
     body: JSON.stringify(newClient)
-})
+})}
+else{alert("In order to add a user you must use a unique email if this is your first time signing up try submitting again!")}
+}))
+
 }
 
     return(
