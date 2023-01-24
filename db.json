@@ -6,7 +6,6 @@
       "purchase": "service",
       "image": "public/raftingUnderBridge.jpg",
       "detail": "test details",
-      "priceMin": 0,
       "priceMax": 1000,
       "time": 60,
       "consultation": false,
@@ -18,7 +17,6 @@
       "purchase": "service",
       "image": "public/raftingUnderBridge.jpg",
       "detail": "test details",
-      "priceMin": 0,
       "priceMax": 1000,
       "time": 60,
       "consultation": false,
@@ -30,7 +28,6 @@
       "purchase": "service",
       "image": "public/raftingUnderBridge.jpg",
       "detail": "test details",
-      "priceMin": 0,
       "priceMax": 1000,
       "time": 60,
       "consultation": false,
@@ -42,7 +39,6 @@
       "purchase": "service",
       "image": "public/raftingUnderBridge.jpg",
       "detail": "test details",
-      "priceMin": 0,
       "priceMax": 1000,
       "time": 60,
       "consultation": false,
@@ -54,7 +50,6 @@
       "purchase": "service",
       "image": "public/raftingUnderBridge.jpg",
       "detail": "test details",
-      "priceMin": 0,
       "priceMax": 1000,
       "time": 60,
       "consultation": false,
@@ -66,7 +61,6 @@
       "purchase": "service",
       "image": "public/raftingUnderBridge.jpg",
       "detail": "test details",
-      "priceMin": 0,
       "priceMax": 1000,
       "time": 60,
       "consultation": false,
@@ -75,20 +69,26 @@
   ],
   "People": [
     {
-      "id": 1,
-      "name": "Jake",
+      "uuid": "a4c33044-69bf-4b0d-a85d-0e728141ebd7",
+      "name": "jake",
       "email": "jakediehl17@gmail.com",
-      "password": "2622 lafayette street",
-      "howCurly": "wavy",
-      "hairLength": "long",
-      "hairColor": "brown"
+      "password": "theringing11",
+      "howCurly": "Curly",
+      "hairLength": "Short less than 4\"s",
+      "hairColor": "Brunette",
+      "cart": [],
+      "notes": [],
+      "id": 1
     }
   ],
-  "Administrators":[
+  "Administrators": [
     {
-        "email": "jakediehl17@gmail.com",
-        "password":"2622 lafayette street"
+      "email": "jakediehl17@gmail.com",
+      "password": "lilacs11"
+    },
+    {
+      "email": "angel@gmail.com",
+      "password": "something"
     }
   ]
-  
 }

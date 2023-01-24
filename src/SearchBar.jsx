@@ -1,7 +1,5 @@
-import { useState } from "react"
 
 function SearchBar ({searchSubmit}){
-    const [search, setSearch]= useState('')
 
 
     function handleChange(e){
@@ -25,6 +23,8 @@ function SearchBar ({searchSubmit}){
             </select> */}
             <input type="text" placeholder="search" onChange={handleChange}
             name = "search"
+        className="searchBar"
+
             />
             {/* <input type='submit' /> */}
 

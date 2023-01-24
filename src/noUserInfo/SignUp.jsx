@@ -1,46 +1,118 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import {useHistory} from "react-router-dom"
+import {v4 as uuidv4} from 'uuid'
 
 
-function SignUp(){
 
-    const [emailMatch, setEmailMatch] = useState(true)
+function SignUp({handleLoginInfo , onSignOut}){
+let myuuid = uuidv4()
+
+    const history = useHistory()
+const [users,setUsers] = useState([])
+    // const [emailMatch, setEmailMatch] = useState(true)
+
+useEffect(()=>{
+    fetch('http://localhost:3000/People')
+    .then(r=>r.json())
+    .then(setUsers)
+},[])
+
+
+
+
+
 
 function handleNewClientForm(e){
     e.preventDefault()
-    // const key = e.target.id
-    // console.log(key)
     const selectCurly = e.target.howCurly
     const selectLength = e.target.hairLength
     const selectColor = e.target.hairColor
 
+    function passwordMatch(){
+    if(e.target.password.value!== e.target.passwordCheck.value){alert('passwords do not match')}
+    else{null}
+
+    }
+    passwordMatch()
+
 
 const newClient = {
+    uuid: myuuid,
     name: e.target.userName.value,
     email: e.target.email.value,
     password: e.target.password.value,
     howCurly: selectCurly.options[selectCurly.selectedIndex].text,
     hairLength: selectLength.options[selectLength.selectedIndex].text,
-    hairColor: selectColor.options[selectColor.selectedIndex].text
+    hairColor: selectColor.options[selectColor.selectedIndex].text,
+    cart: [],
+    notes: []
 }
 
-fetch('http://localhost:3000/People')
-.then(r=>r.json())
-.then(people => people.map(person=> {
-if(newClient.email !== person.email){
-    setEmailMatch(emailMatch => (!emailMatch))
+
+
+
+
+const emails = users.map(user=>user.email)
+
+// console.log(emails)
+
+function filterEmail(){
+    const filter = emails.filter(email=>{
+        if(email===newClient.email){
+          return true
+        }
+        if(email !== newClient.email){return false
+            }
+    })
+    if(filter.length!==1 && newClient.password!=="" && newClient.password.length > 8 && newClient.password!="password" && e.target.password.value===e.target.passwordCheck.value){
+        // alert("should work")
+        fetch('http://localhost:3000/People',{
+            method: "POST",
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify(newClient)
+        })
+        .then(r=>r.json())
+        .then(handleLoginInfo(newClient))
+        .then(history.push(`/`))
+    }
+    if(filter.length === 1){alert('In order to sign up you need an unused email and a password with more than 8 characters')}
 }
-if(emailMatch===false){
-fetch('http://localhost:3000/People', {
-    method: "POST",
-    headers:{'Content-Type': "application/json"},
-    body: JSON.stringify(newClient)
-})}
-else{alert("In order to add a user you must use a unique email if this is your first time signing up try submitting again!")}
-}))
+filterEmail()
+
+// console.log(emailMatch)
+
+
+
+
+// console.log(match)
+// if(match){alert("In order to add a user you must use a unique email if this is your first time signing up try submitting again!")}
+// else{
+//     console.log("good")
+//     // fetch('http://localhost:3000/People', {
+//     // method: "POST",
+//     // headers:{'Content-Type': "application/json"},
+//     // body: JSON.stringify(newClient)})
+// }
+// if(newClient.email !== person.email){
+
+    //     setEmailMatch(emailMatch =>(!emailMatch)) useThis later maybe
+// }
+// if(emailMatch===false)
+// { use this later maybe
+
+// fetch('http://localhost:3000/People', {
+//     method: "POST",
+//     headers:{'Content-Type': "application/json"},
+//     body: JSON.stringify(newClient)
+//     //thinking about adding .then's and if okay response then I will re-direct to the user's profile.
+// })}
+// if (emailMatch===true){alert("In order to add a user you must use a unique email if this is your first time signing up try submitting again!")}
+// ))
 
 }
 
     return(
+        <>
         <div>
             <form id="newClientForm" onSubmit={handleNewClientForm}>
 
@@ -53,12 +125,18 @@ else{alert("In order to add a user you must use a unique email if this is your f
                 <br />
 
                 <input type='password' placeholder="Password" id="password"/>
+                <br />
+                <input type='password' placeholder="Check Password" id="passwordCheck"/>
+
+
               
                 <br />
-               please select how Curly your hair is 
+               Please select how Curly your hair is 
                <br />
 
                <select form="newClientForm" id="howCurly" name="howCurly">
+
+
                     <option value='dreads'>
                         Dreads
                     </option>
@@ -85,6 +163,8 @@ else{alert("In order to add a user you must use a unique email if this is your f
                 <br />
 
                 <select id="hairLength" form="newClientForm" name="hairLength">
+
+
                     <option value='short'>
                         Short less than 4"s
                     </option>
@@ -107,6 +187,9 @@ else{alert("In order to add a user you must use a unique email if this is your f
                 <br />
 
                 <select id="hairColor" form="newClientForm" name="hairColor">
+
+
+
                     <option value='brunette'>
                     Brunette
                     </option>
@@ -133,6 +216,7 @@ else{alert("In order to add a user you must use a unique email if this is your f
 
 
         </div>
+        </>
     )
 }
 export default SignUp

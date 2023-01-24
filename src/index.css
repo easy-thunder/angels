@@ -3,10 +3,11 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
+  
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(167, 160, 160, 0.87);
+  background-color: #3a3434;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,12 +25,18 @@ a:hover {
   color: #535bf2;
 }
 
+
 body {
   margin: 0;
+  color:rgba(167, 160, 160, 0.87);
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: linear-gradient(to bottom right, rgb(8, 21, 73), rgb(38, 2, 50)) ;
+}
+ul{
+  list-style-type: none;
 }
 
 h1 {

@@ -5,33 +5,33 @@ import { NavLink } from "react-router-dom"
 
 function Header(){
     return(
-        <div>
-<NavLink to='/login' exact>
-            <button>Login</button>
+        <div className="header">
+<NavLink to='/login' exact >
+            <button className="miniGlow">Login</button>
 </NavLink>
 
 <NavLink to='/signUp' exact>
-            <button>Sign Up</button>
+            <button className="miniGlow">Sign Up</button>
 </NavLink>
 
 <NavLink to='/profile' exact>
-            <button>Profile</button>
+            <button className="miniGlow">Profile</button>
 </NavLink>
 
 <NavLink to='/' exact>
-            <button>✂️</button>
+            <button className="miniGlow">✂️</button>
 </NavLink>
 
 <NavLink to="/about" exact>
-            <button>About</button>
+            <button className="miniGlow">About</button>
 </NavLink>
 
 <NavLink to="/contact" exact>
-            <button>Contact</button>
+            <button className="miniGlow">Contact</button>
 </NavLink>
 
 <NavLink to='/cart' exact>
-            <button>🛒</button>
+            <button className="miniGlow">🛒</button>
 </NavLink>
         </div>
     )

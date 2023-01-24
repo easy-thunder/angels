@@ -1,38 +1,24 @@
 import SearchBar from "../SearchBar";
 import MainPhoto from "../MainPhoto";
-import CardList from "../CardList";
+import UserCardList from "../user/UserCardList";
 
-import { useState, useEffect } from "react";
 
-function Home() {
-  const [cardList, setCardList] = useState([]);
-  const [search, setSearch] = useState('')
-  useEffect(() => {
-    fetch("http://localhost:3000/services")
-      .then((r) => r.json())
-      .then(setCardList);
-  }, []);
-  function searchSubmit(search) {
-    setSearch(search)
-  }
+function Home({searchSubmit, updatedCards, addTooCart, userInfo}) {
 
-  const updatedCards = cardList.filter((card) => {
-    const upperCaseName = card.name.toUpperCase();
-    const upperCaseSearch = search.toUpperCase();
-    if (upperCaseSearch === "") {
-      return true;
-    }
-    if (upperCaseName.includes(upperCaseSearch)) {
-      return true;
-    }
-  });
+
+
 
   return (
+    <>
     <div>
       <MainPhoto />
+      <h1>Services</h1>
       <SearchBar searchSubmit={searchSubmit} />
-      <CardList cardList={updatedCards} />
+      <UserCardList cardList={updatedCards} addTooCart={addTooCart}
+      userInfo={userInfo}
+      />
     </div>
+    </>
   );
 }
 

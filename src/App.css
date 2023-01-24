@@ -1,15 +1,155 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+button{
+  margin:1rem
 }
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.header{
+  border: rgb(85, 234, 85) solid ;
+  height: 5rem;
+  padding: 2rem;
+  border-radius: 25%;
+  border-left: 2rem;
+  border-right: 2rem;
+}
+
+
+.searchBar{
+  /* margin-top: -1000rem; */
+  font-size:xx-large;
+  height: 3rem;
+  width: 80%;
+  background-color: rgb(242, 240, 238);
+  border: rgb(255, 166, 0) solid 1px ;
+}
+
+.glow{
+  box-shadow:  10px 10px 30px 10px rgb(255, 204, 0);
+  border:rgba(216, 95, 15, 0.625) solid 2px;
+
+}
+.miniGlow{
+  box-shadow:  1px 1px 20px 1px rgb(255, 128, 0);
+}
+
+img{
+  margin:0%;
+  padding:0%;
+  position: relative;
+  display: grid;
+}
+
+.serviceName{
+  height: 3rem;
+  text-align: center;
+  grid-area: serviceName;
+}
+
+.photo{
+  width: 90%;
+  right: 0px;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  grid-area: photo;
+  margin: 0;
+
+}
+
+.details{
+grid-area: details;
+
+  /* margin-right: 50%; */
+  /* padding: 0px; */
+}
+.cardButton{
+  /* right: 0px; */
+  grid-area: cardButton;
+  height: 5rem;
+  /* position:relative; */
+  /* float: right; */
+  /* margin-left: 70%; */
+}
+.servicePrice{
+  width: 30%;
+  grid-area: servicePrice;
+  
+  /* float: left; */
+  /* position: relative; */
+}
+.serviceTime{
+  width: 30%;
+  grid-area: serviceTime;
+}
+.cardContainer{
+  width: 100%;
+  display:grid;
+  grid-template: 
+  ''
+}
+
+
+#serviceCard1{
+  grid-area: card1;
+}
+.mainPhoto{
+  width: 100%;
+}
+
+.mainPhotoContainer{
+  display: grid;
+  grid-template-rows: 70rem;
+  grid-template-areas: 
+'leftPhoto middlePhoto rightPhoto'
+  ;
+
+
+}
+.middlePhoto{
+  grid-area: middlePhoto;
+  height:75%;
+}
+.rightPhoto{
+  grid-area: rightPhoto;
+  height: 75%;
+
+}
+.leftPhoto{
+height:75%;
+  grid-area: leftPhoto;
+}
+
+
+.serviceCard{
+
+  padding: 3rem;
+  /* width: 30%; */
+
+  display: grid;
+  grid-template-areas: 
+  'serviceName serviceName serviceName serviceName serviceName serviceName serviceName serviceName serviceName'
+  'details details details details photo photo photo photo photo'
+  'details details details details photo photo photo photo photo'
+  'details details details details photo photo photo photo photo'
+  'servicePrice servicePrice servicePrice servicePrice servicePrice cardButton cardButton cardButton cardButton'
+  'serviceTime serviceTime serviceTime serviceTime serviceTime cardButton cardButton cardButton cardButton'
+
+  ;
+  gap: 3rem;
+
+  margin: 2rem 2rem;
+  background-color: rgba(33, 61, 6, 0.247);
+}
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
@@ -17,25 +157,5 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
