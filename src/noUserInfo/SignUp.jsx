@@ -3,9 +3,9 @@ import {useHistory} from "react-router-dom"
 import {v4 as uuidv4} from 'uuid'
 
 
-
 function SignUp({handleLoginInfo , onSignOut}){
 let myuuid = uuidv4()
+
 
     const history = useHistory()
 const [users,setUsers] = useState([])
@@ -53,6 +53,7 @@ const newClient = {
 
 
 const emails = users.map(user=>user.email)
+const passwords = users.map(user=>user.password)
 
 // console.log(emails)
 
@@ -64,7 +65,18 @@ function filterEmail(){
         if(email !== newClient.email){return false
             }
     })
-    if(filter.length!==1 && newClient.password!=="" && newClient.password.length > 8 && newClient.password!="password" && e.target.password.value===e.target.passwordCheck.value){
+const pass = passwords.filter(pass=>{
+    if(pass===newClient.password){
+        return true
+    }
+    if(pass !== newClient.password){
+        return false
+    }
+})
+
+
+
+    if(filter.length!==1 && pass.length!==1 && e.target.password.value!=="" && e.target.password.value.length > 8 && e.target.password.value!="password" && e.target.password.value===e.target.passwordCheck.value){
         // alert("should work")
         fetch('http://localhost:3000/People',{
             method: "POST",
@@ -76,6 +88,7 @@ function filterEmail(){
         .then(history.push(`/`))
     }
     if(filter.length === 1){alert('In order to sign up you need an unused email and a password with more than 8 characters')}
+    if(pass.length === 1){alert("set a stronger password")}
 }
 filterEmail()
 

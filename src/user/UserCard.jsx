@@ -7,6 +7,7 @@ let myuuid = uuidv4()
 
         const newAdd = {
             key: myuuid,
+            time: card.time,
             name: card.name,
             price: card.priceMax
         }

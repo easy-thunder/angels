@@ -12,6 +12,10 @@ button{
   padding: 0px;
 }
 
+td{
+  padding: 1rem;
+}
+
 .header{
   border: rgb(85, 234, 85) solid ;
   height: 5rem;

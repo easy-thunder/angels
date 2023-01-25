@@ -1,5 +1,11 @@
+import Scheduler from "./Scheduler";
+// import isThisMonth from "date-fns/isThisMonth";
+
+
 function UserCart({cart, handleDeleteService}){
-console.log(cart)
+
+    // const thisMonth = isThisMonth(Date)
+    // console.log(thisMonth)
     // const initialValue = 0;
 
     // const priceTotal = eachPrice.reduce(
@@ -33,14 +39,17 @@ console.log(cart)
                     <h3></h3>
                 <ul>
                     <li>Item:{service.name}</li>
-                    <li>Price:{service.price}</li>
+                    <li>Price:{service.price}$</li>
                 </ul>
+                
                 </div>
                 
             )
             })}
             
-        <h3>Total: {priceTotal}</h3>
+        <h3>Price: {priceTotal}$</h3>
+        {/* <Scheduler cart ={cart}/> */}
+
         </div> 
         </>
     )
