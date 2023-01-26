@@ -76,20 +76,7 @@
       "howCurly": "Curly",
       "hairLength": "Short less than 4\"s",
       "hairColor": "Brunette",
-      "cart": [
-        {
-          "key": "6fc264b6-ef02-491f-9fc7-7cffb086036d",
-          "time": 60,
-          "name": "lest name",
-          "price": 1000
-        },
-        {
-          "key": "21344e05-9e45-49d0-853d-2c9c800cdae1",
-          "time": 60,
-          "name": "lest name",
-          "price": 1000
-        }
-      ],
+      "cart": [],
       "notes": [],
       "id": 1
     },
@@ -158,6 +145,18 @@
       "cart": [],
       "notes": [],
       "id": 6
+    },
+    {
+      "uuid": "ac63d502-98b4-4ae1-80b0-59987906b084",
+      "name": "lkjsfad;ol",
+      "email": "jklasdf@gmail.com",
+      "password": "the ringing11",
+      "howCurly": "Dreads",
+      "hairLength": "Short less than 4\"s",
+      "hairColor": "Brunette",
+      "cart": [],
+      "notes": [],
+      "id": 7
     }
   ],
   "Administrators": [

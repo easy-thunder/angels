@@ -3,9 +3,8 @@ import {
   eachDayOfInterval,
   eachMinuteOfInterval,
   endOfDay,
-  roundToNearestMinutes,
   startOfDay,
-  subDays
+  subDays,
 } from "date-fns";
 import Day from "./Day";
 import Fifteen from "./Fifteen";
@@ -14,6 +13,9 @@ import { v4 } from "uuid";
 
 function Cart() {
   const myId = v4;
+// 1. I need too move day, setDay usestate too ap pass both down too cart 
+//2. check to see if day === startDate{null} if(day!==startDate){setDay(startDate)}
+//3. fetch delete....[day]
 
   const startDate = new Date();
   const [day, setDay] = useState(startDate);
@@ -21,10 +23,10 @@ function Cart() {
   const endDate = addDays(startDate, 30);
   const dayEnd = endOfDay(startDate);
   const dayStart = startOfDay(startDate);
-  const yesterDay = subDays(startDate, 1)
+  const yesterDay = subDays(startDate, 1);
   const [nextDay, setNextDay] = useState(startDate);
 
-// console.log(yesterDay)
+  // console.log(yesterDay)
 
   useEffect(() => {
     fetch("http://localhost:3000/dates")
@@ -32,24 +34,43 @@ function Cart() {
       .then(setDays);
   }, []);
 
-  const destroyYesterDay = days.filter(day=>{
-   const stringYesterDay= yesterDay.toString().slice(0,10)
-   console.log(stringYesterDay)
-   console.log(day.date)
-    if(day.date===stringYesterDay){return false}
+  const destroyToday = days.filter((day) => {
+    // const stringYesterDay = yesterDay.toString().slice(0, 10);
+    const stringToday = startDate.toString().slice(0, 10);
+    if (day.date === stringToday) {return day
+    }
+    else{return false}
+    
+    // console.log(dayNumber);
+    // return dayNumber;
     // else{return true}
   })
-  console.log(destroyYesterDay)
-//   console.log(destroyYesterDay)
+  
 
-//   useEffect(()=>{ 
-//   })
-//     fetch('http://localhost:3000/dates',{
-//         method: 
+let result;
+  const test = destroyToday
+  if(test[0]!=undefined){
+    // console.log(test[0].id);
+    result = test[0].id
+    
+  }
+  console.log(result)
+// useEffect(()=>{
+//     fetch(`http://localhost:3000/dates/${result}`,{
+//         method: "DELETE"
 //     })
-//   },[day])
+// })
 
-//   console.log(days);
+  
+
+  //   useEffect(()=>{
+  //   })
+  //     fetch('http://localhost:3000/dates',{
+  //         method:
+  //     })
+  //   },[day])
+
+  //   console.log(days);
 
   const sixtyDays = eachDayOfInterval({
     start: startDate,
@@ -100,14 +121,14 @@ function Cart() {
   );
   // console.log(stringMinutes)
 
-
-//tool too build you json
+  //tool too build you json
   function addDate() {
     setNextDay(addDays(nextDay, 1));
-    const nextDayString = nextDay.toString().slice(0,10)
-    console.log(nextDayString)
-    const dateObj = {      date: nextDayString,
-    "09:00": "",
+    const nextDayString = nextDay.toString().slice(0, 10);
+    console.log(nextDayString);
+    const dateObj = {
+      date: nextDayString,
+      "09:00": "",
       "09:15": "",
       "09:30": "",
       "09:45": "",
@@ -147,17 +168,14 @@ function Cart() {
       "18:15": "",
       "18:30": "",
       "18:45": "",
-      "19:00": ""
-  }
+      "19:00": "",
+    };
     fetch("http://localhost:3000/dates", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dateObj
-  )
+      body: JSON.stringify(dateObj),
     });
   }
-
-
 
   const filterDays = sixtyDays.filter((day) => {
     const stringDay = day.toString().slice(0, 10);
@@ -192,4 +210,4 @@ function Cart() {
   );
 }
 
-export default Cart
+export default Cart;

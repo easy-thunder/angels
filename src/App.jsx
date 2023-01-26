@@ -5,7 +5,7 @@ import About from "./noUserInfo/About";
 import Login from "./noUserInfo/Login";
 import SignUp from "./noUserInfo/SignUp";
 import Contact from "./noUserInfo/Contact";
-import Cart from "./noUserInfo/Cart";
+import Cart from "./noUserInfo/Cart"
 import Home from "./noUserInfo/Home";
 import Profile from "./noUserInfo/Profile"
 import Header from "./Header";
@@ -24,7 +24,7 @@ import AdminProfile from "./admin/AdminProfile";
 
 
 function App() {
-
+console.log("hi")
   
   const [login, setLogin]=useState('')
   const [cardList, setCardList] = useState([]);
