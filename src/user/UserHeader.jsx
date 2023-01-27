@@ -1,5 +1,4 @@
 import { NavLink, useHistory} from "react-router-dom"
-import emailjs from "emailjs-com"
 
 
 
@@ -9,6 +8,7 @@ function UserHeader({login, onSignOut}){
         onSignOut()
         history.push('/login')
     }
+
 
 
     return(

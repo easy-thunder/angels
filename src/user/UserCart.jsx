@@ -6,13 +6,14 @@ import {
     endOfDay,
     startOfDay,
   } from "date-fns";
-  import Day from "../noUserInfo/Day";
-  import Fifteen from "../noUserInfo/Fifteen";
 import emailjs from "emailjs-com";
 import { useHistory } from "react-router-dom";
+import Fifteen from "../noUserInfo/Fifteen"
+import Day from "../noUserInfo/Day"
 
 
 function UserCart({cart, handleDeleteService, userInfo}){
+  const history = useHistory()
 
     function sendEmail(e){
         e.preventDefault();
@@ -23,10 +24,9 @@ function UserCart({cart, handleDeleteService, userInfo}){
           }, (error) => {
               console.log(error.text);
           });
-e.target.reset()
 alert("You have submitted your request. We are clearing your cart and redirecting you to our home page.")
 handleDeleteService()
-useHistory().push('/')
+history.push('/')
 
 
     }
@@ -213,16 +213,16 @@ useHistory().push('/')
           <input type='text' name="hairColor" value={userInfo.hairColor} className="form"/>
           <br />
           <label className="label">
-          the service you want is:
 
           </label>
 
           <br />
-          <input type='text' name="service" value={cart[0].name} className="form"/>
-          <br />
-        
+
+
+      
+        <br />
           <input type="submit" className="submit bg-slate-200 rounded-3xl" />
-        </form>
+        </form> 
 
         </div> 
         </>
