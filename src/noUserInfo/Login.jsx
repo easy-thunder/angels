@@ -103,16 +103,19 @@ if(e.target.administrator.checked === false){
 
     return(
         <>
-<div>
+<div className="formContainer rounded-3xl">
     <form id="login" onSubmit={handleUserLogin}>
-        <input type='email' placeholder="Email" id="email" />
+        <input type='email' placeholder="Email" id="email" className="form" />
         <br />
-        <input type='password' placeholder="Password" id="password" />
+        <input type='password' placeholder="Password" id="password" className="form"/>
         <br />
+        <label className="label">
         Are you an administrator?
-        <input type='checkbox' id="administrator"/>
+
+        </label>
+        <input type='checkbox' id="administrator" className="checkbox"/>
         <br />
-        <input type='submit' />
+        <input type='submit' className="submit bg-slate-100 rounded-3xl" />
     </form>
 </div>
 </>

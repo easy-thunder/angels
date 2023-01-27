@@ -3,7 +3,8 @@ import UserCard from "./UserCard"
 
 function UserCardList({cardList, login, addTooCart, userInfo}){
     return(
-        <div className="cardContainer">
+        <div className="cardContainer flex flex-wrap">
+            <div className="blank"></div>
             {cardList.map(card => <UserCard 
             key = {card.id}
             card = {card}

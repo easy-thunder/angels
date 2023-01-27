@@ -3,13 +3,12 @@ import {useHistory} from "react-router-dom"
 import {v4 as uuidv4} from 'uuid'
 
 
-function SignUp({handleLoginInfo , onSignOut}){
+function SignUp({handleLoginInfo }){
 let myuuid = uuidv4()
 
 
     const history = useHistory()
 const [users,setUsers] = useState([])
-    // const [emailMatch, setEmailMatch] = useState(true)
 
 useEffect(()=>{
     fetch('http://localhost:3000/People')
@@ -39,6 +38,7 @@ function handleNewClientForm(e){
 const newClient = {
     uuid: myuuid,
     name: e.target.userName.value,
+    phone: e.target.phone.value,
     email: e.target.email.value,
     password: e.target.password.value,
     howCurly: selectCurly.options[selectCurly.selectedIndex].text,
@@ -73,6 +73,19 @@ const pass = passwords.filter(pass=>{
         return false
     }
 })
+if(e.target.password.value.length<8){
+    alert("your password must be longer than eight characters")
+    return(0)
+}
+
+if(e.target.phone.value===""){
+    alert("We need a phone number. Your phone number will only be used to contact when you schedule a service. If you have any questions call us at 303-507-5815")
+    return(0)
+}
+if(e.target.email.value===""){
+    alert("We need an email to render services. Your email will be used only to contact when you schedule a service and for login purposes. If you have any questions call us at 303-507-5815")
+    return(0)
+}
 
 
 
@@ -91,63 +104,46 @@ const pass = passwords.filter(pass=>{
     if(pass.length === 1){alert("set a stronger password")}
 }
 filterEmail()
-
-// console.log(emailMatch)
-
-
-
-
-// console.log(match)
-// if(match){alert("In order to add a user you must use a unique email if this is your first time signing up try submitting again!")}
-// else{
-//     console.log("good")
-//     // fetch('http://localhost:3000/People', {
-//     // method: "POST",
-//     // headers:{'Content-Type': "application/json"},
-//     // body: JSON.stringify(newClient)})
-// }
-// if(newClient.email !== person.email){
-
-    //     setEmailMatch(emailMatch =>(!emailMatch)) useThis later maybe
-// }
-// if(emailMatch===false)
-// { use this later maybe
-
-// fetch('http://localhost:3000/People', {
-//     method: "POST",
-//     headers:{'Content-Type': "application/json"},
-//     body: JSON.stringify(newClient)
-//     //thinking about adding .then's and if okay response then I will re-direct to the user's profile.
-// })}
-// if (emailMatch===true){alert("In order to add a user you must use a unique email if this is your first time signing up try submitting again!")}
-// ))
-
 }
 
     return(
         <>
-        <div>
+        <div className="formContainer rounded-3xl">
             <form id="newClientForm" onSubmit={handleNewClientForm}>
-
-                <input type='text' placeholder="name" id="userName"/>
-
-                <br />
-
-                <input type='email' placeholder="Email" id="email"/>
+            <label className="label">Name:</label>
+    
+                <input type='text' placeholder="name" id="userName" className="form" />
 
                 <br />
+                <label className="label">Email:</label>
+                
+                
 
-                <input type='password' placeholder="Password" id="password"/>
+                <input type='email' placeholder="Email" id="email" className="form"/>
+
                 <br />
-                <input type='password' placeholder="Check Password" id="passwordCheck"/>
+                <label className="label">phone:</label>
+                <input type='text' placeholder="phone number" id="phone" className="form"/>
+
+                <br />
+                <label className="label">Password</label>
+
+                <input type='password' placeholder="Password" id="password" className="form"/>
+                <br />
+                <label className="label">Confirm</label>
+
+                <input type='password' placeholder="Check Password" id="passwordCheck" className="form"/>
 
 
               
                 <br />
+                <label className="label">
                Please select how Curly your hair is 
+
+                </label>
                <br />
 
-               <select form="newClientForm" id="howCurly" name="howCurly">
+               <select form="newClientForm" id="howCurly" name="howCurly" className="form">
 
 
                     <option value='dreads'>
@@ -172,10 +168,13 @@ filterEmail()
                 </select>
 
                 <br/>
+                <label className="label">
                 Please select your hair length
+
+                </label>
                 <br />
 
-                <select id="hairLength" form="newClientForm" name="hairLength">
+                <select id="hairLength" form="newClientForm" name="hairLength" className="form">
 
 
                     <option value='short'>
@@ -196,10 +195,13 @@ filterEmail()
                 </select>
 
                 <br />
+                <label className="label">
                 Please select your hair color
+
+                </label>
                 <br />
 
-                <select id="hairColor" form="newClientForm" name="hairColor">
+                <select id="hairColor" form="newClientForm" name="hairColor" className="form">
 
 
 
@@ -224,7 +226,7 @@ filterEmail()
                     </option>
                 </select>
                     <br />
-                <input type='submit' value='submit'/>
+                <input type='submit' value='submit' className="cursor-pointer bg-slate-50 rounded-3xl submit"/>
             </form> 
 
 

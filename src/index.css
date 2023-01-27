@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -6,7 +11,7 @@
   
 
   color-scheme: light dark;
-  color: rgba(167, 160, 160, 0.87);
+  color: rgba(188, 181, 181, 0.87);
   background-color: #3a3434;
 
   font-synthesis: none;
@@ -16,24 +21,23 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
+
+.threeDots{
+  width: 2%;
+  text-align: center;
+}
 
 body {
   margin: 0;
-  color:rgba(167, 160, 160, 0.87);
+  padding: 0px;
+  padding-top: 1px;
+  color:rgba(59, 14, 14, 0.962);
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom right, rgb(8, 21, 73), rgb(38, 2, 50)) ;
+  background-color: rgb(211, 233, 245);
+  /* background-image: linear-gradient(to bottom right, rgb(238, 224, 177), rgb(38, 2, 50)) ; */
 }
 ul{
   list-style-type: none;

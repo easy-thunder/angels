@@ -1,4 +1,5 @@
-import "./App.css";
+import "./index.css"
+import "./App.css"
 import { Switch, Route } from "react-router-dom";
 import {useState, useEffect} from "react"
 import About from "./noUserInfo/About";
@@ -24,7 +25,6 @@ import AdminProfile from "./admin/AdminProfile";
 
 
 function App() {
-console.log("hi")
   
   const [login, setLogin]=useState('')
   const [cardList, setCardList] = useState([]);
@@ -143,8 +143,8 @@ console.log("hi")
 
 
 
-
 {login ? <UserHeader login={login} onSignOut={onSignOut}/> : <Header/>}
+
 
     
       <Switch>
@@ -163,7 +163,9 @@ console.log("hi")
 
 
       <Route exact path = {`/userCart/${login}`}>
-        <UserCart  cart={cart} handleDeleteService ={handleDeleteService}/>
+        <UserCart  cart={cart} handleDeleteService ={handleDeleteService}
+        userInfo={userInfo}
+        />
       </Route>
 
 

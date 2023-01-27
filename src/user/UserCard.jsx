@@ -9,7 +9,9 @@ let myuuid = uuidv4()
             key: myuuid,
             time: card.time,
             name: card.name,
-            price: card.priceMax
+            price: card.priceMax,
+            image: card.image,
+            detail: card.detail
         }
         addTooCart(newAdd)
         
@@ -22,11 +24,11 @@ let myuuid = uuidv4()
 
 
     return(
-        <div className="serviceCard glow" id={`serviceCard${card.id}`}>
-            <h2 className="serviceName">{card.name}</h2>
+        <div className="serviceCard glow rounded-3xl " id={`serviceCard${card.id}`}>
+            <h2 className="serviceName bg-slate-300 font-bold rounded-t-3xl">{card.name}</h2>
         <img className='photo' src={card.image} />
-        <p className='details'>description: {card.detail} </p>
-        <p className="servicePrice ">Price: {card.priceMax}</p>
+        {/* <p className='details'>description: <br />{card.detail} </p> */}
+        <p className="servicePrice">Price: {card.priceMax}$</p>
         <p className='serviceTime'>service time:{card.time} minutes</p>
         <button onClick={handleAddTooCart} className="miniGlow cardButton" >Add Too Cart</button>
         </div>

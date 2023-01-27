@@ -10,9 +10,10 @@ function Home({searchSubmit, updatedCards, addTooCart, userInfo}) {
 
   return (
     <>
+
     <div>
       <MainPhoto />
-      <h1>Services</h1>
+      <h1>What's your next Look?</h1>
       <SearchBar searchSubmit={searchSubmit} />
       <UserCardList cardList={updatedCards} addTooCart={addTooCart}
       userInfo={userInfo}

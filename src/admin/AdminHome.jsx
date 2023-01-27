@@ -10,6 +10,7 @@ const newCard = {
     image: e.target.image.value,
     detail: e.target.detail.value,
     priceMax: e.target.priceMax.value,
+    time: e.target.time.value,
     consultation: e.target.consultation.checked,
     why: e.target.why.value
 }
@@ -39,6 +40,8 @@ return(
             <input type='text' placeholder="service or product details" id="detail" />
             <br />
             <input type='number' placeholder="maximum price" id="priceMax" />
+            <br />
+            <input type='number' placeholder="time required" id="time" />
             <br />
             does this require consultation?
             <input type='checkbox' id="consultation" />

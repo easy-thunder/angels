@@ -1,6 +1,8 @@
 import { useHistory } from "react-router-dom"
+import {useState} from "react"
 
 function UserProfile({userInfo, onSignOut}){
+    const [hidden, setHidden] = useState(true)
 
     const history = useHistory()
 
@@ -84,37 +86,45 @@ if(currentPassword !== userInfo.password){
 
     }
 
-
+function hideForm(){
+setHidden(hidden=> (!hidden))
+}
 
 
     return(
         <>
-        <div>
-            <h3>Name: {userInfo.name}</h3>
-            <h4>Hair Type: {userInfo.howCurly}</h4>
-            <h4>Hair Length: {userInfo.hairLength}</h4>
-            <h4>hairColor: {userInfo.hairColor}</h4>
+        <div className="formContainer rounded-t-3xl">
+            <h3 className="largeText">Name: {userInfo.name}</h3>
+            <h4 className="largeText">Hair Type: {userInfo.howCurly}</h4>
+            <h4 className="largeText">Hair Length: {userInfo.hairLength}</h4>
+            <h4 className="largeText">hairColor: {userInfo.hairColor}</h4>
         </div>
-        <h3>Edit your profile</h3>
-        <form id="newClientForm" onSubmit={handlePatchClient}>
+        <br />
+        <h3 className=" largeText cursor-pointer bg-slate-200 rounded-3xl w-64" onClick={hideForm}>Edit your profile</h3>
 
-                <input type='text' placeholder="name" id="userName"/>
-
-                <br />
-
-                <input type='email' placeholder="Email" id="email"/>
+        <form className={`formContainer rounded-b-3xl ${hidden? "hidden" : "block"}`} id="newClientForm" onSubmit={handlePatchClient} >
+                <label className="label">Name:</label>
+                <input type='text' placeholder="name" id="userName" className="form"/>
 
                 <br />
+                <label className="label">Email:</label>
+                <input type='email' placeholder="Email" id="email" className="form"/>
 
-                <input type='password' placeholder="New Password" id="password"/>
                 <br />
-                <input type='password' placeholder="Check password" id="passwordCheck" />
+                <label className="label">Password</label>
+                <input type='password' placeholder="New Password" id="password" className="form"/>
+                <br />
+                <label className="label">Check:</label>
+                <input type='password' placeholder="Check password" id="passwordCheck" className="form"/>
               
                 <br />
-               Please select how Curly your hair is 
+                <label className="label">
+                Please select how Curly your hair is 
+
+                </label>
                <br />
 
-               <select form="newClientForm" id="howCurly" name="howCurly">
+               <select form="newClientForm" id="howCurly" name="howCurly" className="form">
 
                <option value= {null}>
                         Please Select
@@ -142,10 +152,13 @@ if(currentPassword !== userInfo.password){
                 </select>
 
                 <br/>
+                <label className="label">
                 Please select your hair length
+
+                </label>
                 <br />
 
-                <select id="hairLength" form="newClientForm" name="hairLength">
+                <select id="hairLength" form="newClientForm" name="hairLength" className="form">
 
                 <option value= {null}>
                         Please Select
@@ -169,10 +182,14 @@ if(currentPassword !== userInfo.password){
                 </select>
 
                 <br />
-                Please select your hair color
                 <br />
+                <label className="label">
+                Please select your hair color
 
-                <select id="hairColor" form="newClientForm" name="hairColor">
+                </label>
+
+
+                <select id="hairColor" form="newClientForm" name="hairColor" className="form">
 
                 <option value= {null}>
                         Please Select
@@ -199,8 +216,10 @@ if(currentPassword !== userInfo.password){
                     </option>
                 </select>
                     <br />
-                    <input type='password' placeholder="Current Password" id="currentPassword"/>
-                <input type='submit' value='submit' style={{cursor: "pointer"}}/>
+                    <label className="label">Current</label>
+                    <input type='password' placeholder="Current Password" id="currentPassword" className="form"/>
+                    <br/>
+                <input className="submit rounded-3xl bg-red-50" type='submit' value='submit' style={{cursor: "pointer"}}/>
             </form> 
 
 
