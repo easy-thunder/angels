@@ -116,7 +116,7 @@
       "uuid": "a4c33044-69bf-4b0d-a85d-0e728141ebd7",
       "name": "jake",
       "email": "jakediehl17@gmail.com",
-      "password": "lilacs11",
+      "password": "jakediehl17@gmail.com",
       "howCurly": "Curly",
       "hairLength": "Short less than 4\"s",
       "hairColor": "Brunette",
@@ -141,7 +141,7 @@
   "Administrators": [
     {
       "email": "jakediehl17@gmail.com",
-      "password": "lilacs11"
+      "password": "jakediehl17@gmail.com"
     },
     {
       "email": "angel@gmail.com",
