@@ -120,7 +120,16 @@
       "howCurly": "Curly",
       "hairLength": "Short less than 4\"s",
       "hairColor": "Brunette",
-      "cart": [],
+      "cart": [
+        {
+          "key": "3912a6f8-db1e-4b9b-973f-3d440b1caf8e",
+          "time": 90,
+          "name": "Root touch up",
+          "price": 85,
+          "image": "public/rootTouchUp.jpeg",
+          "detail": "Touch up your roots with some color. Receive the best coloring service that you've ever had."
+        }
+      ],
       "notes": [],
       "id": 1
     },
@@ -136,6 +145,32 @@
       "cart": [],
       "notes": [],
       "id": 2
+    },
+    {
+      "uuid": "1d916e0c-efd5-41a6-bb29-27fca0b4b27d",
+      "name": "jake",
+      "phone": "9705820018",
+      "email": "jake@gmail.com",
+      "password": "jake@gmail.com",
+      "howCurly": "Dreads",
+      "hairLength": "Short less than 4\"s",
+      "hairColor": "Brunette",
+      "cart": [],
+      "notes": [],
+      "id": 3
+    },
+    {
+      "uuid": "959a34ee-a031-46b5-b878-20c73e2f039a",
+      "name": "best@gmail.com",
+      "phone": "9705820018",
+      "email": "best@gmail.com",
+      "password": "best@gmail.com",
+      "howCurly": "Dreads",
+      "hairLength": "Short less than 4\"s",
+      "hairColor": "Brunette",
+      "cart": [],
+      "notes": [],
+      "id": 4
     }
   ],
   "Administrators": [
